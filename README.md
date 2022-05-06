@@ -1,1 +1,3 @@
-# simplelib-ui-kit
+# SimpleLib UI Kit
+
+Just another UI Kit for inside use.
