@@ -1,11 +1,12 @@
 {
   "name": "@minimus/simplelib-ui-kit",
   "description": "Core UI Kit for SimpleLib products",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "./dist/bundle.js",
   "scripts": {
     "build-prod": "webpack",
+    "build": "tsc",
     "publish-to-git": "npm publish"
   },
   "dependencies": {
@@ -13,7 +14,7 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.7.0",
-    "@mui/styled-engine": "^npm:@mui/styled-engine-sc@latest",
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
     "react": "^18.1.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.1.0",
@@ -47,6 +48,10 @@
     "typescript": "^4.6.4",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
+  },
+  "peerDependencies": {
+    "react": ">= 18.0.0",
+    "react-dom": ">= 18.0.0"
   },
   "repository": "git://github.com/minimus/simplelib-ui-kit.git"
 }

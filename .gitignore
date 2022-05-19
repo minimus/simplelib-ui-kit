@@ -185,8 +185,6 @@ web_modules/
 # Nuxt.js build / generate output
 .nuxt
 
-.npmrc
-
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
@@ -211,3 +209,5 @@ web_modules/
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+.npmrc
+dist
