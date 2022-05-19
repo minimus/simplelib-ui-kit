@@ -1,5 +1,5 @@
 {
-  "name": "simplelib-ui-kit",
+  "name": "@simplelib/ui-kit",
   "description": "Core UI Kit for SimpleLib products",
   "version": "0.0.1",
   "main": "./dist/bundle.js",
@@ -49,10 +49,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/minimus/simplelib-ui-kit.git"
-  },
-  "publishConfig": {
-    "registry": "git://github.com/minimus/simplelib-ui-kit.git",
-    "always-auth": "true",
-    "auth": "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"
   }
 }
