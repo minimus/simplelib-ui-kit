@@ -1,9 +1,9 @@
 {
   "name": "@minimus/simplelib-ui-kit",
   "description": "Core UI Kit for SimpleLib products",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
-  "main": "./dist/bundle.js",
+  "main": "./dist/index.js",
   "scripts": {
     "build-prod": "webpack",
     "build": "tsc",
