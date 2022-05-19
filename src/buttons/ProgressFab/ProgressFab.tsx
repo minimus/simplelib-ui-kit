@@ -75,7 +75,7 @@ const ProgressFab = (props: TProps): JSX.Element => {
 	useEffect(() => {
 		if (error || success) {
 			if (delay && onDelay) {
-				wait(delay, onDelay).then((id: number) => {
+				void wait(delay, onDelay).then((id: number) => {
 					timerRef.current = id
 				})
 			}
