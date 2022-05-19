@@ -1,7 +1,7 @@
 {
   "name": "@minimus/simplelib-ui-kit",
   "description": "Core UI Kit for SimpleLib products",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "main": "./dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "tsc",
     "publish-to-git": "npm publish"
   },
-  "files": ["dist/**/*"],
+  "files": ["dist/**/*", "*"],
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
