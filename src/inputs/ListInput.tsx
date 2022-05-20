@@ -2,8 +2,7 @@ import React, { ChangeEvent } from 'react'
 import TextField from '@mui/material/TextField'
 import MenuItem from '@mui/material/MenuItem'
 import { Root } from '../styles'
-import type { TListValue } from './RadioInput'
-import { IListInput } from '../types'
+import { IListInput, IListValue } from '../types'
 
 const ListInput = (props: IListInput): JSX.Element => {
 	const { id, value, values, caption, tooltip = '', size = 'small', disabled = false, onChange } = props
@@ -27,7 +26,7 @@ const ListInput = (props: IListInput): JSX.Element => {
 				onChange={handleChange}
 				variant="outlined"
 			>
-				{values.map((item: TListValue, idx: number) => (
+				{values.map((item: IListValue, idx: number) => (
 					<MenuItem key={idx.toString()} value={item.value}>
 						{item.text}
 					</MenuItem>
