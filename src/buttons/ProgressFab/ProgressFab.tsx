@@ -3,26 +3,9 @@ import { green, red } from '@mui/material/colors'
 import { Box, CircularProgress, Fab, Tooltip } from '@mui/material'
 import ContentIcon from './ContentIcon'
 import { wait } from '../../utils/utils'
+import { IProgressFab } from '../../types'
 
-type TProps = {
-	processing?: boolean
-	success?: boolean
-	error?: boolean
-	disabled?: boolean
-	color?: 'default' | 'inherit' | 'primary' | 'secondary'
-	sx?: Record<string, unknown>
-	size?: 'small' | 'medium' | 'large'
-	tooltip?: string
-	displayPosition?: Record<string, unknown>
-	successIcon?: JSX.Element
-	errorIcon?: JSX.Element
-	delay?: number
-	children: JSX.Element
-	onClick: MouseEventHandler<HTMLButtonElement> | undefined
-	onDelay?: () => void | undefined
-}
-
-const ProgressFab = (props: TProps): JSX.Element => {
+const ProgressFab = (props: IProgressFab): JSX.Element => {
 	const {
 		processing = false,
 		success = false,

@@ -3,22 +3,12 @@ import TextField from '@mui/material/TextField'
 import MenuItem from '@mui/material/MenuItem'
 import { Root } from '../styles'
 import type { TListValue } from './RadioInput'
+import { IListInput } from '../types'
 
-type TProps = {
-	value: string
-	values: TListValue[]
-	id: string
-	caption: string
-	tooltip?: string
-	size?: 'xSmall' | 'small' | 'half' | 'big' | 'fill'
-	disabled?: boolean
-	onChange?: (val: string | number) => void | undefined
-}
-
-const ListInput = (props: TProps): JSX.Element => {
+const ListInput = (props: IListInput): JSX.Element => {
 	const { id, value, values, caption, tooltip = '', size = 'small', disabled = false, onChange } = props
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement>): any => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
 		if (onChange) {
 			const val = e?.target?.value
 			onChange(val)

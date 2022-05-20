@@ -8,17 +8,9 @@ import {
 	Root,
 } from '../styles'
 import TextInput from './TextInput'
+import { ICrossTextInput } from '../types'
 
-type TProps = {
-	id: string
-	caption: string
-	captions: string[]
-	values: number[]
-	tooltip: string
-	onChange: (val: Array<number>) => void | undefined
-}
-
-const CrossTextInput = (props: TProps): JSX.Element => {
+const CrossTextInput = (props: ICrossTextInput): JSX.Element => {
 	const { id, caption, captions, values, tooltip, onChange } = props
 	const [topCaption, leftCaption, rightCaption, bottomCaption] = captions
 	const [top, left, right, bottom] = values

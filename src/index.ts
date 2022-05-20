@@ -7,3 +7,4 @@ import { default as RadioInput } from './inputs/RadioInput'
 import { default as SwitchInput } from './inputs/SwitchInput'
 
 export { ProgressFab, TextInput, ColorsInput, CrossTextInput, ListInput, RadioInput, SwitchInput }
+export * from './types'

@@ -2,20 +2,12 @@ import React, { ChangeEvent } from 'react'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Switch from '@mui/material/Switch'
 import { Root } from '../styles'
+import { ISwitchInput } from '../types'
 
-type TProps = {
-	id: string
-	caption: string | JSX.Element
-	value: boolean | number
-	size?: 'small' | 'half' | 'big' | 'fill'
-	disabled?: boolean
-	onChange?: (value: 0 | 1 | boolean) => void | undefined
-}
-
-const SwitchInput = (props: TProps): JSX.Element => {
+const SwitchInput = (props: ISwitchInput): JSX.Element => {
 	const { id, caption, value, size = 'small', disabled = false, onChange = undefined } = props
 
-	const onValueChange = (e: ChangeEvent<HTMLInputElement>): any => {
+	const onValueChange = (e: ChangeEvent<HTMLInputElement>): void => {
 		if (onChange) {
 			const val = e?.target?.checked
 			if (Number.isInteger(value)) {

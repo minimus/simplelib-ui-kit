@@ -2,28 +2,12 @@ import React from 'react'
 import Radio from '@mui/material/Radio'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import { FieldCaption, FieldTooltip, RadioGroupRoot, Root } from '../styles'
+import { IRadioInput, IListValue } from '../types'
 
-export type TListValue = {
-	text: string
-	value: string
-}
-
-type TProps = {
-	id: string
-	caption: string
-	tooltip: string | JSX.Element
-	value: unknown
-	values: TListValue[]
-	size?: 'small' | 'half' | 'big' | 'fill'
-	big?: boolean
-	direction?: 'row' | 'column'
-	onChange?: (value) => unknown | undefined
-}
-
-const RadioInput = (props: TProps): JSX.Element => {
+const RadioInput = (props: IRadioInput): JSX.Element => {
 	const { id, value, values, caption, tooltip, size = 'small', big = false, direction = 'column', onChange } = props
 
-	const onValueChange = (val: any) => () => {
+	const onValueChange = (val: unknown) => () => {
 		if (onChange) {
 			onChange(val)
 		}
@@ -33,7 +17,7 @@ const RadioInput = (props: TProps): JSX.Element => {
 		<Root size={size} style={{ margin: '0 5px' }}>
 			<FieldCaption>{caption}</FieldCaption>
 			<RadioGroupRoot column={direction === 'column'}>
-				{values?.map((item: TListValue, idx: number) => (
+				{values?.map((item: IListValue, idx: number) => (
 					<FormControlLabel
 						key={idx.toString()}
 						value={item.value}

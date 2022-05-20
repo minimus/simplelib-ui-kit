@@ -2,23 +2,9 @@ import React, { ChangeEvent } from 'react'
 import TextField from '@mui/material/TextField'
 import InputAdornment from '@mui/material/InputAdornment'
 import { Root } from '../styles'
+import { ITextInput } from '../types'
 
-type TProps = {
-	id: string
-	caption: string
-	tooltip?: string | JSX.Element
-	contentType?: string
-	value: unknown
-	suffix?: string | JSX.Element
-	size?: 'xSmall' | 'small' | 'half' | 'big' | 'fill'
-	big?: boolean
-	inside?: boolean
-	disabled?: boolean
-	button?: boolean
-	onChange?: (val: string | number) => void | undefined
-}
-
-const TextInput = (props: TProps): JSX.Element => {
+const TextInput = (props: ITextInput): JSX.Element => {
 	const {
 		id,
 		caption,
@@ -47,9 +33,7 @@ const TextInput = (props: TProps): JSX.Element => {
 		}
 	}
 
-	// const endAdornment = suffix ? <InputAdornment position="end">{suffix}</InputAdornment> : null
 	const inputProps = {
-		// type: contentType,
 		...(suffix ? { endAdornment: <InputAdornment position="end">{suffix}</InputAdornment> } : {}),
 	}
 
