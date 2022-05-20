@@ -1,7 +1,7 @@
 {
   "name": "@minimus/simplelib-ui-kit",
   "description": "Core UI Kit for SimpleLib products",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "license": "MIT",
   "main": "./dist/index.js",
   "scripts": {
