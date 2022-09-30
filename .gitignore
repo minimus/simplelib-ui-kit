@@ -210,4 +210,7 @@ web_modules/
 .vscode-test
 
 .npmrc
+.yarn
 dist
+
+.yarnrc.yml

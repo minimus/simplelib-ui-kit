@@ -1,7 +1,8 @@
 {
   "name": "@minimus/simplelib-ui-kit",
+  "packageManager": "yarn@3.2.3",
   "description": "Core UI Kit for SimpleLib products",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "main": "./dist/index.js",
   "scripts": {
@@ -9,17 +10,17 @@
     "build": "tsc",
     "publish-to-git": "npm publish"
   },
-  "files": ["dist/**/*", "*"],
+  "files": [
+    "dist/**/*",
+    "*"
+  ],
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.0",
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
-    "react": "^18.2.0",
-    "react-color": "^2.19.3",
-    "react-dom": "^18.2.0",
-    "styled-components": "^5.3.5"
+    "react-color": "^2.19.3"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.2",
@@ -29,13 +30,13 @@
     "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-node": "^0.3.6",
-    "eslint-loader": "^4.0.2",
     "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-css-modules": "^2.11.0",
     "eslint-plugin-import": "^2.25.4",
@@ -51,8 +52,10 @@
     "webpack-cli": "^4.9.2"
   },
   "peerDependencies": {
-    "react": ">= 18.0.0",
-    "react-dom": ">= 18.0.0"
+    "react": ">= 18.2.0",
+    "react-dom": ">= 18.2.0",
+    "react-is": "^18.2.0",
+    "styled-components": "^5.3.5"
   },
   "repository": "git://github.com/minimus/simplelib-ui-kit.git"
 }
