@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "es5",
-    "jsx": "react",
+    "module": "ESNext",
+    "target": "ES2022",
+    "jsx": "react-jsx",
     "declaration": true,
     "sourceMap": true,
-    "lib": ["es2020", "dom"],
+    "lib": ["ES2022", "dom"],
     "outDir": "dist",
     "moduleResolution": "node",
     "isolatedModules": true,
@@ -15,7 +15,11 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipDefaultLibCheck": true
+    "skipDefaultLibCheck": true,
+    /*"paths": {
+      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
+    },*/
+    "strictNullChecks": true
   },
   "include": ["src"],
   "exclude": [

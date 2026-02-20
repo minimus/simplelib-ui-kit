@@ -25,5 +25,8 @@ module.exports = {
 		modules: ['node_modules'],
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
 		mainFields: ['browser', 'jsnext:main', 'main'],
+    /*alias: {
+      '@mui/styled-engine': '@mui/styled-engine-sc'
+    },*/
 	},
 }
