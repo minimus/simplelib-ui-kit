@@ -1,11 +1,11 @@
-import React, { ChangeEvent, JSX } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import { Root } from '../styles';
 import { ITextInput } from '../types';
 
-const TextInput = (props: ITextInput): JSX.Element => {
+const TextInput: FC<ITextInput> = (props) => {
   const {
     id,
     caption,
@@ -34,10 +34,12 @@ const TextInput = (props: ITextInput): JSX.Element => {
     }
   };
 
-  const inputProps = {
+  const slotProps = {
     ...(suffix
       ? {
-          endAdornment: <InputAdornment position="end">{suffix}</InputAdornment>,
+          input: {
+            endAdornment: <InputAdornment position="end">{suffix}</InputAdornment>,
+          },
         }
       : {}),
   };
@@ -51,7 +53,7 @@ const TextInput = (props: ITextInput): JSX.Element => {
         value={value}
         variant="outlined"
         disabled={disabled}
-        InputProps={inputProps}
+        slotProps={slotProps}
         size={big ? 'medium' : 'small'}
         fullWidth={inside}
         onChange={onValueChange}

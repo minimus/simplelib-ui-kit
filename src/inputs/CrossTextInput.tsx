@@ -1,11 +1,11 @@
-import React, { JSX } from 'react';
+import React, { FC } from 'react';
 
 import { CrossFieldContent, CrossFieldDoubleRow, CrossFieldSingleRow, FieldCaption, FieldTooltip, Root } from '../styles';
 import { ICrossTextInput } from '../types';
 
 import TextInput from './TextInput';
 
-const CrossTextInput = (props: ICrossTextInput): JSX.Element => {
+const CrossTextInput: FC<ICrossTextInput> = (props) => {
   const { id, caption, captions, values, tooltip, onChange } = props;
   const [topCaption, leftCaption, rightCaption, bottomCaption] = captions;
   const [top, left, right, bottom] = values;

@@ -8,6 +8,13 @@ export default {
 				'number-max-precision': 5,
 			},
 		},
+		{
+			files: ['**/*.{js,ts,jsx,tsx}'],
+			customSyntax: 'postcss-styled-syntax',
+			rules: {
+				'at-rule-no-unknown': null,
+			},
+		},
 	],
 	rules: {
 		'at-rule-no-unknown': null,

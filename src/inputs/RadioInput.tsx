@@ -1,11 +1,11 @@
-import React, { JSX } from 'react';
+import React, { FC } from 'react';
 import Radio from '@mui/material/Radio';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 import { FieldCaption, FieldTooltip, RadioGroupRoot, Root } from '../styles';
 import { IRadioInput, IListValue } from '../types';
 
-const RadioInput = (props: IRadioInput): JSX.Element => {
+const RadioInput: FC<IRadioInput> = (props) => {
   const { id, value, values, caption, tooltip, size = 'small', big = false, direction = 'column', onChange } = props;
 
   const onValueChange = (val: unknown) => () => {
@@ -18,9 +18,9 @@ const RadioInput = (props: IRadioInput): JSX.Element => {
     <Root size={size} style={{ margin: '0 5px' }}>
       <FieldCaption>{caption}</FieldCaption>
       <RadioGroupRoot column={direction === 'column'}>
-        {values?.map((item: IListValue, idx: number) => (
+        {values?.map((item: IListValue) => (
           <FormControlLabel
-            key={idx.toString()}
+            key={item.value}
             value={item.value}
             control={<Radio color="primary" size={big ? 'medium' : 'small'} />}
             label={item.text}

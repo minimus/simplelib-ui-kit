@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, JSX, useEffectEvent } from 'react';
+import React, { useEffect, useState, useRef, useEffectEvent, FC } from 'react';
 import { green, red } from '@mui/material/colors';
 import { Box, CircularProgress, Fab, Tooltip } from '@mui/material';
 
@@ -7,7 +7,7 @@ import { IProgressFab } from '../../types';
 
 import ContentIcon from './ContentIcon';
 
-const ProgressFab = (props: IProgressFab): JSX.Element => {
+const ProgressFab: FC<IProgressFab> = (props) => {
   const {
     processing = false,
     success = false,

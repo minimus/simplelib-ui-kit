@@ -1,11 +1,11 @@
-import { JSX, MouseEventHandler } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 
 export interface IContentIcon {
   success: boolean;
-  successIcon?: JSX.Element;
+  successIcon?: ReactNode;
   error: boolean;
-  errorIcon?: JSX.Element;
-  children: JSX.Element;
+  errorIcon?: ReactNode;
+  children: ReactNode;
 }
 
 export interface IProgressFab {
@@ -18,10 +18,10 @@ export interface IProgressFab {
   size?: 'small' | 'medium' | 'large';
   tooltip?: string;
   displayPosition?: Record<string, unknown>;
-  successIcon?: JSX.Element;
-  errorIcon?: JSX.Element;
+  successIcon?: ReactNode;
+  errorIcon?: ReactNode;
   delay?: number;
-  children: JSX.Element;
+  children: ReactNode;
   onClick: MouseEventHandler<HTMLButtonElement> | undefined;
   onDelay?: () => void | undefined;
 }
@@ -29,10 +29,10 @@ export interface IProgressFab {
 export interface ITextInput {
   id: string;
   caption: string;
-  tooltip?: string | JSX.Element;
+  tooltip?: string | ReactNode;
   contentType?: string;
   value: unknown;
-  suffix?: string | JSX.Element;
+  suffix?: string | ReactNode;
   size?: 'xSmall' | 'small' | 'half' | 'big' | 'fill';
   big?: boolean;
   inside?: boolean;
@@ -68,7 +68,7 @@ export interface IColor {
 export interface IColorsInput {
   id: string;
   caption: string;
-  tooltip?: string | JSX.Element;
+  tooltip?: string | ReactNode;
   value: string;
   size?: 'xSmall' | 'small' | 'half' | 'big' | 'fill';
   inside?: boolean;
@@ -104,7 +104,7 @@ export interface IListInput {
 export interface IRadioInput {
   id: string;
   caption: string;
-  tooltip: string | JSX.Element;
+  tooltip: string | ReactNode;
   value: unknown;
   values: IListValue[];
   size?: 'small' | 'half' | 'big' | 'fill';
@@ -115,7 +115,7 @@ export interface IRadioInput {
 
 export interface ISwitchInput {
   id: string;
-  caption: string | JSX.Element;
+  caption: string | ReactNode;
   value: boolean | number;
   size?: 'small' | 'half' | 'big' | 'fill';
   disabled?: boolean;

@@ -1,11 +1,11 @@
-import React, { ChangeEvent, JSX } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 
 import { Root } from '../styles';
 import { IListInput, IListValue } from '../types';
 
-const ListInput = (props: IListInput): JSX.Element => {
+const ListInput: FC<IListInput> = (props) => {
   const { id, value, values, caption, tooltip = '', size = 'small', disabled = false, onChange } = props;
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {

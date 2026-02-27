@@ -18,40 +18,40 @@ const getSize = (val: string | undefined): string => {
   }
 };
 
-interface TRootProps {
+interface IRootProps {
   relative?: boolean;
   button?: boolean;
   inside?: boolean;
   size?: string;
 }
 
-export const Root = styled.div<TRootProps>`
-  position: ${(props: TRootProps) => (props?.relative ? 'relative' : 'inherit')};
+export const Root = styled.div<IRootProps>`
+  position: ${(props: IRootProps) => (props?.relative ? 'relative' : 'inherit')};
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: ${(props: TRootProps) => (props.inside ? 'inherit' : '100%')};
+  width: ${(props: IRootProps) => (props.inside ? 'inherit' : '100%')};
   margin: 5px 0 10px;
 
   & .MuiTextField-root {
-    width: calc(${(props: TRootProps) => getSize(props?.size)} - 10px);
+    width: calc(${(props: IRootProps) => getSize(props?.size)} - 10px);
     margin: 5px;
   }
 
   & .MuiOutlinedInput-adornedEnd {
-    padding-right: ${(props: TRootProps) => (props.button ? '0' : '14px')};
+    padding-right: ${(props: IRootProps) => (props.button ? '0' : '14px')};
   }
 `;
 
 export const FieldCaption = styled.div`
-  color: rgba(0, 0, 0, 0.54);
   font-weight: 700;
+  color: rgb(0 0 0 / 54%);
 `;
 export const FieldTooltip = styled.p`
-  color: rgba(0, 0, 0, 0.54);
-  font-weight: 500;
   font-size: 0.75rem;
+  font-weight: 500;
+  color: rgb(0 0 0 / 54%);
 `;
 
 interface TRadioGroupRootProps {
@@ -99,8 +99,8 @@ export const BorderSettingsContentRow = styled.div`
 
 export const ShadowSettingsRoot = styled.div`
   display: grid;
-  grid-gap: 20px;
   grid-template-columns: 1fr 250px;
+  gap: 20px;
   width: 100%;
   padding: 5px;
 `;
@@ -134,8 +134,8 @@ export const ShadowSettingsPreview = styled.div`
   border: 1px solid #dcdada;
 
   & span:first-child {
-    font-weight: 700;
     font-size: 25px;
+    font-weight: 700;
   }
 `;
 
@@ -152,30 +152,27 @@ export const ColorPopover = styled.div`
 
 export const ColorCover = styled.div`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
 `;
 
-interface TColorSelectIconProps {
+interface IColorSelectIconProps {
   value: string;
 }
 
-export const ColorSelectIcon = styled(Brightness1Icon)<TColorSelectIconProps>`
+export const ColorSelectIcon = styled(Brightness1Icon)<IColorSelectIconProps>`
   &.MuiSvgIcon-root {
-    fill: ${(props: TColorSelectIconProps) => props.value};
+    fill: ${(props: IColorSelectIconProps) => props.value};
   }
 `;
 
-interface TImagePreview {
+interface IImagePreview {
   preview: number | boolean;
 }
 
-export const ImageComponentsContainer = styled.div<TImagePreview>`
-  display: ${(props: TImagePreview) => (props.preview ? 'grid' : 'inherit')};
-  ${(props: TImagePreview) => props.preview && `grid-template-columns: ${props.preview}px 1fr;`}
-  grid-gap: 5px;
+export const ImageComponentsContainer = styled.div<IImagePreview>`
+  display: ${(props: IImagePreview) => (props.preview ? 'grid' : 'inherit')};
+  ${(props: IImagePreview) => props.preview && `grid-template-columns: ${props.preview}px 1fr;`}
+  gap: 5px;
   width: 100%;
 `;
 
@@ -185,19 +182,20 @@ export const ImageInputsContainer = styled.div`
   width: 100%;
 `;
 
-interface TImagePreviewContainer {
+interface IImagePreviewContainer {
   image: string;
   $size: number | boolean;
 }
 
-export const ImagePreview = styled.div<TImagePreviewContainer>`
-  display: ${(props: TImagePreviewContainer) => (props.$size ? 'inherit' : 'none')};
-  max-width: ${(props: TImagePreviewContainer) => (props.$size ? `${props.$size}px` : 0)};
-  max-height: ${(props: TImagePreviewContainer) => (props.$size ? `${props.$size}px` : 0)};
+export const ImagePreview = styled.div<IImagePreviewContainer>`
+  display: ${(props: IImagePreviewContainer) => (props.$size ? 'inherit' : 'none')};
+  max-width: ${(props: IImagePreviewContainer) => (props.$size ? `${props.$size}px` : 0)};
+  max-height: ${(props: IImagePreviewContainer) => (props.$size ? `${props.$size}px` : 0)};
   margin: 10px 0 0;
-  background-image: url('${(props: TImagePreviewContainer) => props.image}');
+  background-image: url('${(props: IImagePreviewContainer) => props.image}');
   background-repeat: no-repeat;
   background-position: center;
+
   /* background-size: contain;
 	border: 1px solid #dcdada; */
   border-radius: 5px;

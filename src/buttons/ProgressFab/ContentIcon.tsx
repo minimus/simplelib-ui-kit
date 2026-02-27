@@ -1,9 +1,9 @@
-import React, { JSX } from 'react';
+import React, { FC } from 'react';
 import { Check as CheckIcon, Warning as WarningIcon } from '@mui/icons-material';
 
 import { IContentIcon } from '../../types';
 
-const ContentIcon = (props: IContentIcon): JSX.Element => {
+const ContentIcon: FC<IContentIcon> = (props) => {
   const { success, successIcon = <CheckIcon />, error, errorIcon = <WarningIcon />, children } = props;
 
   if (success && !error) return successIcon;

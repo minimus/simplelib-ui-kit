@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, JSX } from 'react';
+import React, { ChangeEvent, useState, FC } from 'react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -7,7 +7,7 @@ import { ChromePicker } from 'react-color';
 import { ColorCover, ColorPopover, ColorSelectIcon, Root } from '../styles';
 import { IColorsInput, IColor } from '../types';
 
-const ColorsInput = (props: IColorsInput): JSX.Element => {
+const ColorsInput: FC<IColorsInput> = (props) => {
   const { id, caption, tooltip, value, size = 'small', inside = false, disabled = false, onChange } = props;
 
   const [visible, setVisible] = useState(false);
@@ -20,14 +20,16 @@ const ColorsInput = (props: IColorsInput): JSX.Element => {
     setVisible(false);
   };
 
-  const inputProps = {
-    endAdornment: (
-      <InputAdornment position="end">
-        <IconButton disabled={disabled} onClick={handleClick}>
-          <ColorSelectIcon value={value} />
-        </IconButton>
-      </InputAdornment>
-    ),
+  const slotProps = {
+    input: {
+      endAdornment: (
+        <InputAdornment position="end">
+          <IconButton disabled={disabled} onClick={handleClick}>
+            <ColorSelectIcon value={value} />
+          </IconButton>
+        </InputAdornment>
+      ),
+    },
   };
 
   const onValueChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -49,7 +51,7 @@ const ColorsInput = (props: IColorsInput): JSX.Element => {
         variant="outlined"
         size="small"
         disabled={disabled}
-        InputProps={inputProps}
+        slotProps={slotProps}
         onChange={onValueChange}
       />
       {visible && (

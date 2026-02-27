@@ -1,11 +1,11 @@
-import React, { ChangeEvent, JSX } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
 import { Root } from '../styles';
 import { ISwitchInput } from '../types';
 
-const SwitchInput = (props: ISwitchInput): JSX.Element => {
+const SwitchInput: FC<ISwitchInput> = (props) => {
   const { id, caption, value, size = 'small', disabled = false, onChange = undefined } = props;
 
   const onValueChange = (e: ChangeEvent<HTMLInputElement>): void => {
