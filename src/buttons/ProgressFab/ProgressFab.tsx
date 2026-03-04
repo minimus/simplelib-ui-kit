@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useEffectEvent, FC } from 'react';
+import React, { useEffect, useState, useRef, useEffectEvent, FC, useMemo } from 'react';
 import { green, red } from '@mui/material/colors';
 import { Box, CircularProgress, Fab, Tooltip } from '@mui/material';
 
@@ -6,6 +6,12 @@ import { wait } from '../../utils/utils';
 import { IProgressFab } from '../../types';
 
 import ContentIcon from './ContentIcon';
+
+const getProgressSize = (buttonSize: 'small' | 'medium' | 'large'): number => {
+  if (buttonSize === 'small') return 52;
+  if (buttonSize === 'medium') return 60;
+  return 68;
+};
 
 const ProgressFab: FC<IProgressFab> = (props) => {
   const {
@@ -26,32 +32,29 @@ const ProgressFab: FC<IProgressFab> = (props) => {
     onDelay,
   } = props;
 
-  const getProgressSize = (buttonSize: 'small' | 'medium' | 'large'): number => {
-    if (buttonSize === 'small') return 52;
-    if (buttonSize === 'medium') return 60;
-    return 68;
-  };
-
   const [progressSize, setProgressSize] = useState<number>(() => getProgressSize(size));
 
-  const timerRef = useRef(null);
+  const timerRef = useRef<number | null>(null);
 
   const onDoubleClick = () => false;
 
-  const buttonSx = {
-    ...(success && {
-      'bgcolor': green[500],
-      '&:hover': {
-        bgcolor: green[700],
-      },
+  const buttonSx = useMemo(
+    () => ({
+      ...(success && {
+        'bgcolor': green[500],
+        '&:hover': {
+          bgcolor: green[700],
+        },
+      }),
+      ...(error && {
+        'bgcolor': red[500],
+        '&:hover': {
+          bgcolor: red[700],
+        },
+      }),
     }),
-    ...(error && {
-      'bgcolor': red[500],
-      '&:hover': {
-        bgcolor: red[700],
-      },
-    }),
-  };
+    [success, error],
+  );
 
   const updateProgressSize = useEffectEvent(() => {
     setProgressSize(getProgressSize(size));
@@ -65,8 +68,6 @@ const ProgressFab: FC<IProgressFab> = (props) => {
     if (error || success) {
       if (delay && onDelay) {
         void wait(delay, onDelay).then((id: number) => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-expect-error
           timerRef.current = id;
         });
       }

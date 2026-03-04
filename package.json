@@ -2,7 +2,7 @@
   "name": "@minimus/simplelib-ui-kit",
   "packageManager": "yarn@3.2.3",
   "description": "Core UI Kit for SimpleLib products",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "main": "./dist/index.js",
   "scripts": {
