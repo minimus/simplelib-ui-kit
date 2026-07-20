@@ -2,7 +2,7 @@
   "name": "@minimus/simplelib-ui-kit",
   "packageManager": "yarn@3.2.3",
   "description": "Core UI Kit for SimpleLib products",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "license": "MIT",
   "main": "./dist/index.js",
   "scripts": {
@@ -17,8 +17,8 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.8",
-    "@mui/material": "^7.3.8",
+    "@mui/icons-material": "^9.2.0",
+    "@mui/material": "^9.2.0",
     "react-color": "^2.19.3"
   },
   "devDependencies": {

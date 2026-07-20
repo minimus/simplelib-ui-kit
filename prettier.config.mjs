@@ -1,0 +1,12 @@
+const config = {
+  trailingComma: 'all',
+  quoteProps: 'consistent',
+  arrowParens: 'always',
+  bracketSpacing: true,
+  tabWidth: 2,
+  singleQuote: true,
+  semi: true,
+  printWidth: 150,
+};
+
+export default config;
