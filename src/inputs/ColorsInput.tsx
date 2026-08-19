@@ -1,11 +1,12 @@
-import React, { ChangeEvent, useState, FC } from 'react';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
+import React, { ChangeEvent, useState, FC, useCallback } from 'react';
 import IconButton from '@mui/material/IconButton';
 import { ChromePicker } from 'react-color';
+import { FormControl, FormHelperText, InputLabel, OutlinedInput, InputAdornment } from '@mui/material';
 
-import { ColorCover, ColorPopover, ColorSelectIcon, Root } from '../styles';
+import { ColorCover, ColorPopover, ColorSelectIcon } from '../styles';
 import { IColorsInput, IColor } from '../types';
+
+import InputRoot from './InputRoot';
 
 const ColorsInput: FC<IColorsInput> = (props) => {
   const { id, caption, tooltip, value, size = 'small', inside = false, disabled = false, onChange } = props;
@@ -16,21 +17,9 @@ const ColorsInput: FC<IColorsInput> = (props) => {
     setVisible(!visible);
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setVisible(false);
-  };
-
-  const slotProps = {
-    input: {
-      endAdornment: (
-        <InputAdornment position="end">
-          <IconButton disabled={disabled} onClick={handleClick}>
-            <ColorSelectIcon value={value} />
-          </IconButton>
-        </InputAdornment>
-      ),
-    },
-  };
+  }, []);
 
   const onValueChange = (e: ChangeEvent<HTMLInputElement>): void => {
     onChange?.(e.target.value);
@@ -42,25 +31,33 @@ const ColorsInput: FC<IColorsInput> = (props) => {
   };
 
   return (
-    <Root relative size={size} inside={inside} button>
-      <TextField
-        id={id}
-        label={caption}
-        helperText={tooltip}
-        value={value}
-        variant="outlined"
-        size="small"
-        disabled={disabled}
-        slotProps={slotProps}
-        onChange={onValueChange}
-      />
+    <InputRoot relative size={size} inside={inside} button>
+      <FormControl>
+        <InputLabel htmlFor={id}>{caption}</InputLabel>
+        <OutlinedInput
+          id={id}
+          label={caption}
+          value={value}
+          disabled={disabled}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton disabled={disabled} onClick={handleClick}>
+                <ColorSelectIcon value={value} />
+              </IconButton>
+            </InputAdornment>
+          }
+          size="small"
+          onChange={onValueChange}
+        />
+        {tooltip && <FormHelperText>{tooltip}</FormHelperText>}
+      </FormControl>
       {visible && (
         <ColorPopover>
           <ColorCover onClick={handleClose} />
           <ChromePicker color={value} onChange={onColorChange} />
         </ColorPopover>
       )}
-    </Root>
+    </InputRoot>
   );
 };
 

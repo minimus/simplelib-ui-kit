@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FC } from 'react';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
+import { FormControl, FormHelperText, InputLabel, OutlinedInput, InputAdornment } from '@mui/material';
 
-import { Root } from '../styles';
 import { ITextInput } from '../types';
+
+import InputRoot from './InputRoot';
 
 const TextInput: FC<ITextInput> = (props) => {
   const {
@@ -34,31 +34,23 @@ const TextInput: FC<ITextInput> = (props) => {
     }
   };
 
-  const slotProps = {
-    ...(suffix
-      ? {
-          input: {
-            endAdornment: <InputAdornment position="end">{suffix}</InputAdornment>,
-          },
-        }
-      : {}),
-  };
-
   return (
-    <Root size={size} inside={inside} button={button}>
-      <TextField
-        id={id}
-        label={caption}
-        helperText={tooltip}
-        value={value}
-        variant="outlined"
-        disabled={disabled}
-        slotProps={slotProps}
-        size={big ? 'medium' : 'small'}
-        fullWidth={inside}
-        onChange={onValueChange}
-      />
-    </Root>
+    <InputRoot size={size} inside={inside} button={button}>
+      <FormControl>
+        <InputLabel htmlFor={id}>{caption}</InputLabel>
+        <OutlinedInput
+          id={id}
+          label={caption}
+          value={value}
+          disabled={disabled}
+          size={big ? 'medium' : 'small'}
+          endAdornment={suffix ? <InputAdornment position="end">{suffix}</InputAdornment> : undefined}
+          fullWidth={inside}
+          onChange={onValueChange}
+        />
+        {tooltip && <FormHelperText>{tooltip}</FormHelperText>}
+      </FormControl>
+    </InputRoot>
   );
 };
 

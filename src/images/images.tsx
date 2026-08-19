@@ -1,4 +1,4 @@
-import { SVGProps } from 'react';
+import React, { SVGProps } from 'react';
 
 export interface IIconProps extends SVGProps<Omit<SVGSVGElement, 'height' | 'width'>> {
   height?: number;
